@@ -9,6 +9,8 @@ python = "^3.8"
 Flask = "^2.0.2"
 replit = "^3.2.4"
 Flask-Cors = "^3.0.10"
+turbo = "^0.4.9"
+timedelta = "^2020.12.3"
 
 [tool.poetry.dev-dependencies]
 
