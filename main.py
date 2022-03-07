@@ -45,8 +45,9 @@ def create():
           else: 
             weight = x['weight'] + "," + (str(weight))
           
-          if x['totalWeight'] > total_weight:
-            total_weight = x['totalWeight']
+          if type(x['totalWeight']) == type(100):
+            if x['totalWeight'] > total_weight:
+              total_weight = x['totalWeight']
           
           if x['repitions'] == None:
               repititions = 'null,' + repititions
