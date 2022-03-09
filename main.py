@@ -45,8 +45,9 @@ def create():
           else: 
             weight = x['weight'] + "," + (str(weight))
           
-          if x['totalWeight'] > total_weight:
-            total_weight = x['totalWeight']
+          if type(x['totalWeight']) == type(100):
+            if x['totalWeight'] > total_weight:
+              total_weight = x['totalWeight']
           
           if x['repitions'] == None:
               repititions = 'null,' + repititions
@@ -56,6 +57,13 @@ def create():
           worktime = x['time'] + "," + worktime
           created = x['created']
         conn = get_db_connection()
+        workouts = conn.execute('SELECT * FROM workouts WHERE username = ? And created = ?', (args,created)).fetchall()
+      
+        is_present = bool(workouts)
+        if is_present:
+            print("Previous workout flag being returned", file=sys.stderr)
+            conn.close()
+            return "ALREADY logged" 
         conn.execute(
           'INSERT INTO workouts (username, exercise, weight,repititions,totalweight, time, created ) VALUES (?,?,?,?,?,?,?)',
           (username, exercise, weight, repititions, total_weight, worktime, created, ))
