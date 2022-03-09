@@ -8,9 +8,9 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-cur.execute("INSERT INTO workouts (username, exercise, weight, totalweight, repititions, time,created) VALUES (?,?,?,?,?,?,?)", ('Khal','back fly,back fly, back fly', '45,35,25','105','15,20,25', '12:34,12:44,12:54','2022-03-03'))
+cur.execute("INSERT INTO workouts (username, exercise, weight, totalweight, repititions, time,created) VALUES (?,?,?,?,?,?,?)", ('Khal','back fly,back fly, back fly', '45,35,25','105','15,20,25', '12:34,12:44,12:54','2022-03-05'))
 
-cur.execute("INSERT INTO workouts (username, exercise, weight, totalweight, repititions, time,created) VALUES (?,?,?,?,?,?,?)", ('Khal','squat, squat, squat', '200,235,225','660','15,20,25', '12:34,12:44,12:54','2022-03-04'))
+cur.execute("INSERT INTO workouts (username, exercise, weight, totalweight, repititions, time,created) VALUES (?,?,?,?,?,?,?)", ('Khal','squat, squat, squat', '200,235,225','660','15,20,25', '12:34,12:44,12:54','2022-03-06'))
 
 connection.commit()
 connection.close()
